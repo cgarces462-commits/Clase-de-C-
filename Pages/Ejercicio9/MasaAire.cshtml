@@ -1,0 +1,24 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio9.MasaAireModel
+
+<h2>Segunda Guía - Ejercicio 3: Masa de Aire</h2>
+<form method="post">
+    <div>
+        <label>Presión:</label>
+        <input asp-for="Presion" type="number" step="any" />
+    </div>
+    <div>
+        <label>Volumen:</label>
+        <input asp-for="Volumen" type="number" step="any" />
+    </div>
+    <div>
+        <label>Temperatura:</label>
+        <input asp-for="Temperatura" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Masa != null)
+{
+    <p>Masa: @Model.Masa</p>
+}

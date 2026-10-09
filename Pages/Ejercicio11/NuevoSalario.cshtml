@@ -1,0 +1,16 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio11.NuevoSalarioModel
+
+<h2>Segunda Guía - Ejercicio 5: Nuevo Salario</h2>
+<form method="post">
+    <div>
+        <label>Salario Anterior:</label>
+        <input asp-for="Salario" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Nuevo != null)
+{
+    <p>Nuevo Salario: @Model.Nuevo</p>
+}

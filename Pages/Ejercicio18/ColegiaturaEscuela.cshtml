@@ -1,0 +1,24 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio18.ColegiaturaEscuelaModel
+
+<h2>Ejercicio 5: Cálculo de Colegiatura</h2>
+<form method="post">
+    <div>
+        <label>Número de materias:</label>
+        <input asp-for="NumMaterias" type="number" required />
+    </div>
+    <div>
+        <label>Costo por materia:</label>
+        <input asp-for="CostoMateria" type="number" step="any" required />
+    </div>
+    <div>
+        <label>Promedio obtenido:</label>
+        <input asp-for="Promedio" type="number" step="any" required />
+    </div>
+    <button type="submit">Calcular Colegiatura</button>
+</form>
+
+@if (Model.TotalPagar != null)
+{
+    <p>Total a pagar por colegiatura: <strong>$@Model.TotalPagar</strong></p>
+}

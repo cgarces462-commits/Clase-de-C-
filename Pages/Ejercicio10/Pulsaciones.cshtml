@@ -1,0 +1,16 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio10.PulsacionesModel
+
+<h2>Segunda Guía - Ejercicio 4: Pulsaciones</h2>
+<form method="post">
+    <div>
+        <label>Edad:</label>
+        <input asp-for="Edad" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Pulsaciones != null)
+{
+    <p>Pulsaciones cada 10 segundos: @Model.Pulsaciones</p>
+}

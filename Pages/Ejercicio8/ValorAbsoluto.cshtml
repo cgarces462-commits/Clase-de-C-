@@ -1,0 +1,16 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio8.ValorAbsolutoModel
+
+<h2>Segunda Guía - Ejercicio 2: Valor Absoluto</h2>
+<form method="post">
+    <div>
+        <label>Número:</label>
+        <input asp-for="Numero" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Resultado != null)
+{
+    <p>El valor absoluto es: @Model.Resultado</p>
+}

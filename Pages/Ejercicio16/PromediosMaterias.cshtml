@@ -1,0 +1,68 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio16.PromediosMateriasModel
+
+<h2>Segunda Guía - Ejercicio 10: Promedios por Materia</h2>
+<form method="post">
+    <h3>Matemáticas</h3>
+    <div>
+        <label>Examen Matemáticas:</label>
+        <input asp-for="ExMat" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 1 Matemáticas:</label>
+        <input asp-for="T1Mat" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 2 Matemáticas:</label>
+        <input asp-for="T2Mat" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 3 Matemáticas:</label>
+        <input asp-for="T3Mat" type="number" step="any" />
+    </div>
+
+    <h3>Física</h3>
+    <div>
+        <label>Examen Física:</label>
+        <input asp-for="ExFis" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 1 Física:</label>
+        <input asp-for="T1Fis" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 2 Física:</label>
+        <input asp-for="T2Fis" type="number" step="any" />
+    </div>
+
+    <h3>Química</h3>
+    <div>
+        <label>Examen Química:</label>
+        <input asp-for="ExQui" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 1 Química:</label>
+        <input asp-for="T1Qui" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 2 Química:</label>
+        <input asp-for="T2Qui" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tarea 3 Química:</label>
+        <input asp-for="T3Qui" type="number" step="any" />
+    </div>
+
+    <br />
+    <button type="submit">Calcular Promedios</button>
+</form>
+
+@if (Model.General != null)
+{
+    <hr />
+    <h3>Resultados:</h3>
+    <p>Promedio Matemáticas: @Model.Mate</p>
+    <p>Promedio Física: @Model.Fisica</p>
+    <p>Promedio Química: @Model.Quimica</p>
+    <p><strong>Promedio General: @Model.General</strong></p>
+}

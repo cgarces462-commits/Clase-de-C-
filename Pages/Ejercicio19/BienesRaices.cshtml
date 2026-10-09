@@ -1,0 +1,21 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio19.BienesRaicesModel
+
+<h2>Ejercicio 6: Enganche y Pagos de Bienes Raíces</h2>
+<form method="post">
+    <div>
+        <label>Ingresos del comprador:</label>
+        <input asp-for="Ingresos" type="number" step="any" required />
+    </div>
+    <div>
+        <label>Costo de la casa:</label>
+        <input asp-for="CostoCasa" type="number" step="any" required />
+    </div>
+    <button type="submit">Calcular Enganche y Pagos</button>
+</form>
+
+@if (Model.Enganche != null && Model.PagoMensual != null)
+{
+    <p>Enganche a pagar: <strong>$@Model.Enganche</strong></p>
+    <p>Pago mensual parcial: <strong>$@Model.PagoMensual</strong></p>
+}

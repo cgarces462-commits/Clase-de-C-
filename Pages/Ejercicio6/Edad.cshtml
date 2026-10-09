@@ -1,0 +1,20 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio6.EdadModel
+
+<h2>Primera Guía - Ejercicio 6: Edad</h2>
+<form method="post">
+    <div>
+        <label>Año de Nacimiento:</label>
+        <input asp-for="Fnac" type="number" />
+    </div>
+    <div>
+        <label>Año Actual:</label>
+        <input asp-for="Fact" type="number" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Edad != null)
+{
+    <p>Edad: @Model.Edad años</p>
+}

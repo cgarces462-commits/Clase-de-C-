@@ -1,0 +1,16 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio17.FianzaSegurosModel
+
+<h2>Ejercicio 4: Cuota de Fianza de Compañía de Seguros</h2>
+<form method="post">
+    <div>
+        <label>Monto de la Fianza:</label>
+        <input asp-for="Monto" type="number" step="any" required />
+    </div>
+    <button type="submit">Calcular Cuota</button>
+</form>
+
+@if (Model.Cuota != null)
+{
+    <p>Cuota a pagar: <strong>$@Model.Cuota</strong></p>
+}

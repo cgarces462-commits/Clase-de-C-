@@ -1,0 +1,18 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio12.HospitalModel
+
+<h2>Segunda Guía - Ejercicio 6: Presupuesto Hospital</h2>
+<form method="post">
+    <div>
+        <label>Presupuesto Total:</label>
+        <input asp-for="Presupuesto" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Gineco != null)
+{
+    <p>Ginecología (40%): @Model.Gineco</p>
+    <p>Traumatología (30%): @Model.Trauma</p>
+    <p>Pediatría (30%): @Model.Pediatria</p>
+}

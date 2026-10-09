@@ -1,0 +1,32 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio4.CalificacionFinalModel
+
+<h2>Primera Guía - Ejercicio 4: Calificación Final</h2>
+<form method="post">
+    <div>
+        <label>Calificación 1:</label>
+        <input asp-for="C1" type="number" step="any" />
+    </div>
+    <div>
+        <label>Calificación 2:</label>
+        <input asp-for="C2" type="number" step="any" />
+    </div>
+    <div>
+        <label>Calificación 3:</label>
+        <input asp-for="C3" type="number" step="any" />
+    </div>
+    <div>
+        <label>Examen Final:</label>
+        <input asp-for="Ef" type="number" step="any" />
+    </div>
+    <div>
+        <label>Trabajo Final:</label>
+        <input asp-for="Tf" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Cf != null)
+{
+    <p>Calificación final: @Model.Cf</p>
+}

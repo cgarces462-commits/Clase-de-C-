@@ -1,0 +1,16 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio13.PrecioVentaModel
+
+<h2>Segunda Guía - Ejercicio 7: Precio de Venta</h2>
+<form method="post">
+    <div>
+        <label>Costo del Producto:</label>
+        <input asp-for="Costo" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Venta != null)
+{
+    <p>Precio sugerido de venta: @Model.Venta</p>
+}

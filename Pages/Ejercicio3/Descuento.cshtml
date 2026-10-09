@@ -1,0 +1,14 @@
+@page
+@model DescuentoModel
+
+<h2>Descuento del 15%</h2>
+<form method="post">
+    <label>Total de la compra:</label>
+    <input asp-for="Tc" type="number" step="any" />
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Tp != null)
+{
+    <p>Total a pagar: @Model.Tp</p>
+}

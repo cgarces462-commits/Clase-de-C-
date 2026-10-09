@@ -1,0 +1,17 @@
+@page
+@model CalculadoraModel
+
+<form method="post">
+    <label>Ingrese un primer numero:</label>
+    <input asp-for="Num1" type="number" step="any" />
+    <br />
+    <label>Ingrese un segundo numero:</label>
+    <input asp-for="Num2" type="number" step="any" />
+    <br />
+    <button type="submit">Sumar</button>
+</form>
+
+@if (Model.Resultado != null)
+{
+    <p>Resultado: @Model.Resultado</p>
+}

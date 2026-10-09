@@ -1,0 +1,24 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio14.TiempoPromedioModel
+
+<h2>Segunda Guía - Ejercicio 8: Tiempo Promedio</h2>
+<form method="post">
+    <div>
+        <label>Tiempo Lunes (T1):</label>
+        <input asp-for="T1" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tiempo Miércoles (T2):</label>
+        <input asp-for="T2" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tiempo Viernes (T3):</label>
+        <input asp-for="T3" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Promedio != null)
+{
+    <p>Tiempo Promedio semanal: @Model.Promedio</p>
+}

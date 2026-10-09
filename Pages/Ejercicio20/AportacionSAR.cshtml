@@ -1,0 +1,32 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio20.AportacionSARModel
+
+<h2>Ejercicio 7: Aportación al SAR y Salario Neto</h2>
+<form method="post">
+    <div>
+        <label>Salario Base del Trabajador:</label>
+        <input asp-for="SalarioBase" type="number" step="any" required />
+    </div>
+    <div>
+        <label>Porcentaje obligatorio de la Empresa (%):</label>
+        <input asp-for="PorcentajeEmpresa" type="number" step="any" required />
+    </div>
+    <div>
+        <label>Tipo de aportación voluntaria del Trabajador:</label>
+        <select asp-for="TipoAportacionTrabajador">
+            <option value="Porcentaje">Porcentaje (%)</option>
+            <option value="Fija">Cuota Fija ($)</option>
+        </select>
+    </div>
+    <div>
+        <label>Valor de la aportación voluntaria:</label>
+        <input asp-for="ValorAportacionTrabajador" type="number" step="any" required />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.TotalDepositadoSAR != null && Model.PagoMensualRecibido != null)
+{
+    <p>Total depositado en la cuenta del SAR al mes: <strong>$@Model.TotalDepositadoSAR</strong></p>
+    <p>Pago mensual que recibirá el trabajador: <strong>$@Model.PagoMensualRecibido</strong></p>
+}

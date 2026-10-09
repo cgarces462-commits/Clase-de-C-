@@ -1,0 +1,26 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio15.InversionModel
+
+<h2>Segunda Guía - Ejercicio 9: Porcentaje de Inversión</h2>
+<form method="post">
+    <div>
+        <label>Inversión Persona A:</label>
+        <input asp-for="A" type="number" step="any" />
+    </div>
+    <div>
+        <label>Inversión Persona B:</label>
+        <input asp-for="B" type="number" step="any" />
+    </div>
+    <div>
+        <label>Inversión Persona C:</label>
+        <input asp-for="C" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Pa != null)
+{
+    <p>Porcentaje Persona A: @Model.Pa %</p>
+    <p>Porcentaje Persona B: @Model.Pb %</p>
+    <p>Porcentaje Persona C: @Model.Pc %</p>
+}

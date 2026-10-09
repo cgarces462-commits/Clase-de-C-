@@ -1,0 +1,21 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio5.PorcentajeHMModel
+
+<h2>Primera Guía - Ejercicio 5: Porcentaje de Hombres y Mujeres</h2>
+<form method="post">
+    <div>
+        <label>Número de hombres:</label>
+        <input asp-for="Nh" type="number" step="any" />
+    </div>
+    <div>
+        <label>Número de mujeres:</label>
+        <input asp-for="Nm" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Ph != null && Model.Pm != null)
+{
+    <p>Porcentaje de Hombres: @Model.Ph %</p>
+    <p>Porcentaje de Mujeres: @Model.Pm %</p>
+}

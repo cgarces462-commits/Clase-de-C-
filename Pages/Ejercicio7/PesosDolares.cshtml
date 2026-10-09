@@ -1,0 +1,20 @@
+@page
+@model CalculadoraWeb.Pages.Ejercicio7.PesosDolaresModel
+
+<h2>Segunda Guía - Ejercicio 1: Pesos a Dólares</h2>
+<form method="post">
+    <div>
+        <label>Cantidad en Pesos:</label>
+        <input asp-for="Pesos" type="number" step="any" />
+    </div>
+    <div>
+        <label>Tasa de cambio (por dólar):</label>
+        <input asp-for="Tasa" type="number" step="any" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.Dolares != null)
+{
+    <p>Total en Dólares: @Model.Dolares</p>
+}
