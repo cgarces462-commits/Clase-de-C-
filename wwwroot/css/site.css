@@ -1,5 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --bg: #09090e;
+  --primary: #ff0055;
+  --secondary: #ff5500;
+  --accent: #ffe600;
+  --cyan: #00f0ff;
+  --text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,19 +23,198 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin-bottom: 60px;
+  min-height: 100vh;
+  background-color: var(--bg) !important;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 0, 85, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255, 85, 0, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  color: var(--text) !important;
 }
 
+/* Líneas de escáner como en tu HTML */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Quitar blancos de Bootstrap */
+.container, main, .bg-white, .bg-light, .card, .table, .list-group-item {
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+
+/* Títulos con degradado */
+h1, h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #ff8fab 30%, var(--primary) 70%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  filter: drop-shadow(0 0 25px rgba(255, 0, 85, 0.5));
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--accent) !important;
+  text-shadow: 0 0 12px rgba(255, 230, 0, 0.7);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Navbar y footer */
+.navbar, .footer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px);
+  border-color: var(--glass-border) !important;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.2);
+}
+
+.navbar-brand, .nav-link, .footer, .footer a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.nav-link:hover, .navbar-brand:hover, a:hover {
+  color: var(--cyan) !important;
+  text-shadow: 0 0 8px var(--cyan);
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+/* Formulario tipo cristal */
+form {
+  background: var(--glass) !important;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 520px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.25);
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  min-width: 160px;
+  color: rgba(255, 255, 255, 0.75) !important;
+  letter-spacing: 0.05em;
+}
+
+/* Inputs oscuros (adiós cuadros blancos) */
+input,
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+.form-control {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px;
+  padding: 8px 14px;
+  outline: none;
+  caret-color: var(--accent);
+  transition: all 0.2s ease;
+}
+
+input::placeholder,
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+.form-control:focus {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: var(--text) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
+}
+
+/* Evita el fondo blanco/azul del autocompletado del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #15101a inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Botones píldora con degradado */
+button, .btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.8rem 2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(255, 0, 85, 0.5);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px -5px rgba(255, 0, 85, 0.7);
+}
+
+button:active, .btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem var(--bg), 0 0 0 0.25rem var(--cyan);
+}
+
+/* Resultados */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  background: var(--glass) !important;
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--cyan);
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  color: var(--text) !important;
+}
+
+/* Errores */
+p[style*="red"] {
+  color: #ff4d6d !important;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.8);
+}
+
+/* Placeholders (tus reglas originales) */
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
@@ -28,4 +222,169 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+.prueba {
+  background-color: var(--primary) !important;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+}
+/* ============================================
+   ANIMACIONES: GLITCH + NEÓN (sutiles)
+   ============================================ */
+
+/* --- Títulos: pulso de neón + ráfaga de glitch --- */
+h1, h2 {
+  animation: neon-glitch 7s infinite;
+}
+h2 { animation-delay: -3s; } /* para que no se sincronicen */
+
+@keyframes neon-glitch {
+  0%, 100% { transform: none; filter: drop-shadow(0 0 22px rgba(255, 0, 85, 0.45)); }
+  40%      { transform: none; filter: drop-shadow(0 0 34px rgba(255, 0, 85, 0.75)); }
+  80%      { transform: none; filter: drop-shadow(0 0 22px rgba(255, 0, 85, 0.45)); }
+
+  /* ráfaga glitch (~0.4s) */
+  90% {
+    transform: translate(-2px, 0) skewX(-4deg);
+    filter: drop-shadow(3px 0 0 rgba(0, 240, 255, 0.8)) drop-shadow(-3px 0 0 rgba(255, 0, 85, 0.8));
+  }
+  92% {
+    transform: translate(2px, 1px) skewX(3deg);
+    filter: drop-shadow(-3px 0 0 rgba(0, 240, 255, 0.8)) drop-shadow(3px 0 0 rgba(255, 230, 0, 0.6));
+  }
+  94% {
+    transform: translate(-1px, 0);
+    filter: drop-shadow(0 0 25px rgba(255, 0, 85, 0.6)) hue-rotate(35deg);
+  }
+  96% { transform: none; filter: drop-shadow(0 0 22px rgba(255, 0, 85, 0.45)); }
+}
+
+/* --- h3: parpadeo neón tipo tubo --- */
+h3 {
+  animation: tube-flicker 6s infinite;
+}
+@keyframes tube-flicker {
+  0%, 18%, 22%, 62%, 100% { opacity: 1; text-shadow: 0 0 12px rgba(255, 230, 0, 0.7); }
+  20%  { opacity: 0.6; text-shadow: none; }
+  60%  { opacity: 0.75; text-shadow: 0 0 4px rgba(255, 230, 0, 0.4); }
+}
+
+/* --- Banda de escáner que baja lentamente --- */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 140px;
+  background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.06), transparent);
+  pointer-events: none;
+  z-index: 11;
+  animation: scan-band 9s linear infinite;
+}
+@keyframes scan-band {
+  from { transform: translateY(-160px); }
+  to   { transform: translateY(100vh); }
+}
+
+/* --- Navbar: línea neón que respira --- */
+.navbar {
+  animation: neon-border 4s ease-in-out infinite;
+}
+@keyframes neon-border {
+  0%, 100% { box-shadow: 0 0 14px rgba(255, 0, 85, 0.2); }
+  50%      { box-shadow: 0 0 26px rgba(255, 0, 85, 0.45), 0 1px 0 rgba(0, 240, 255, 0.35); }
+}
+
+.navbar-brand:hover {
+  animation: mini-glitch 0.35s steps(2) 1;
+}
+@keyframes mini-glitch {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-2px, 1px); text-shadow: 2px 0 var(--primary), -2px 0 var(--cyan); }
+  50%  { transform: translate(2px, -1px); text-shadow: -2px 0 var(--primary), 2px 0 var(--cyan); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- Formulario: resplandor que pulsa --- */
+form {
+  animation: form-glow 5s ease-in-out infinite;
+}
+@keyframes form-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 85, 0.2); border-color: var(--glass-border); }
+  50%      { box-shadow: 0 0 34px rgba(255, 0, 85, 0.4), 0 0 60px rgba(0, 240, 255, 0.08); border-color: rgba(255, 0, 85, 0.45); }
+}
+
+/* --- Inputs: destello al enfocar --- */
+input:focus, .form-control:focus, select:focus, textarea:focus {
+  animation: focus-flash 0.5s ease-out 1;
+}
+@keyframes focus-flash {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.8), 0 0 35px rgba(255, 0, 85, 0.9); }
+  100% { box-shadow: 0 0 0 3px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5); }
+}
+
+/* --- Botones: barrido de luz + glow pulsante --- */
+button, .btn {
+  position: relative;
+  overflow: hidden;
+  animation: btn-pulse 3.5s ease-in-out infinite;
+}
+button::after, .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+button:hover::after, .btn:hover::after {
+  left: 130%;
+}
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 10px 25px -5px rgba(255, 0, 85, 0.45); }
+  50%      { box-shadow: 0 10px 32px -3px rgba(255, 0, 85, 0.75), 0 0 18px rgba(255, 85, 0, 0.35); }
+}
+
+/* --- Items de lista: entrada con destello y hover neón --- */
+li {
+  animation: item-in 0.5s ease-out both;
+  transition: transform 0.2s ease, border-left-color 0.2s ease, box-shadow 0.2s ease;
+}
+li:nth-child(2) { animation-delay: 0.05s; }
+li:nth-child(3) { animation-delay: 0.1s; }
+li:nth-child(4) { animation-delay: 0.15s; }
+li:nth-child(5) { animation-delay: 0.2s; }
+
+li:hover {
+  transform: translateX(4px);
+  border-left-color: var(--primary);
+  box-shadow: -4px 0 18px rgba(255, 0, 85, 0.35);
+}
+@keyframes item-in {
+  0%   { opacity: 0; transform: translateX(-12px); filter: brightness(2); }
+  60%  { opacity: 1; transform: translateX(2px); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+
+/* --- Errores: temblor glitch breve --- */
+p[style*="red"] {
+  animation: error-glitch 4s infinite;
+}
+@keyframes error-glitch {
+  0%, 92%, 100% { transform: none; }
+  94% { transform: translateX(-2px); text-shadow: 2px 0 var(--cyan), -2px 0 var(--primary); }
+  96% { transform: translateX(2px); }
+}
+
+/* --- Accesibilidad: respeta quien prefiere menos movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

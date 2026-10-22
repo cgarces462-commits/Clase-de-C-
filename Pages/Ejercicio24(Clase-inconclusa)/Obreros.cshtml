@@ -1,0 +1,76 @@
+@page
+@model MiProyecto.Pages.ObrerosModel
+@using System.Globalization
+@{
+    ViewData["Title"] = "Salario semanal de obreros";
+    var cop = new CultureInfo("es-CO");
+    int i = 0;
+}
+
+<h2>Salario semanal de obreros</h2>
+<p>
+    Si el obrero trabaja 40 horas o menos, se le paga $20 por hora.
+    Si trabaja más de 40 horas, se le paga $20 por cada una de las primeras 40 horas
+    y $25 por cada hora extra.
+</p>
+
+@* Pedir n *@
+<form method="get" class="mb-4">
+    <label for="N">Cantidad de obreros (n):</label>
+    <input type="number" id="N" name="N" min="1" max="100" value="@(Model.N > 0 ? Model.N : "")" required />
+    <button type="submit">Generar formulario</button>
+</form>
+
+@* Datos de cada obrero *@
+@if (Model.Obreros.Count > 0)
+{
+    <form method="post">
+        <input type="hidden" name="N" value="@Model.N" />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Horas trabajadas</th>
+                    @if (Model.Calculado)
+                    {
+                        <th>Salario semanal</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @while (i < Model.Obreros.Count)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td><input asp-for="Obreros[i].Nombre" placeholder="Obrero @(i + 1)" /></td>
+                        <td><input asp-for="Obreros[i].Horas" type="number" step="any" min="0" max="168" required /></td>
+                        @if (Model.Calculado)
+                        {
+                            <td>@Model.Obreros[i].Salario.ToString("C2", cop)</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2">
+                            <span asp-validation-for="Obreros[i].Nombre" class="text-danger"></span>
+                            <span asp-validation-for="Obreros[i].Horas" class="text-danger"></span>
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+            </tbody>
+        </table>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    @if (Model.Calculado)
+    {
+        <hr />
+        <h4>Resumen</h4>
+        <p><strong>Total a pagar a todos los obreros:</strong> @Model.TotalAPagar.ToString("C2", cop)</p>
+    }
+}

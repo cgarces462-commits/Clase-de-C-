@@ -1,0 +1,33 @@
+@page
+@model CalculadoraWeb.Pages.AtletaModel
+@{
+    ViewData["Title"] = "Prueba de 5 km";
+}
+
+<h2>Ejercicio 4: atleta en la prueba de 5 km</h2>
+
+<form method="post">
+    @for (int i = 0; i < Model.Tiempos.Count; i++)
+    {
+        <div>
+            <label>Día @(i + 1) (minutos):</label>
+            <input type="text" name="Tiempos" value="@Model.Tiempos[i]" />
+        </div>
+    }
+    <button type="submit">Evaluar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <p style="color:red">@Model.Error</p>
+}
+
+@if (!string.IsNullOrEmpty(Model.Resultado))
+{
+    <h3>@Model.Resultado</h3>
+    <ul>
+        <li>Promedio de tiempos: @Model.Promedio.ToString("0.00") min</li>
+        <li>Condición 2 (al menos una prueba mayor a 16 min): @(Model.Cond2 ? "Sí" : "No")</li>
+        <li>Condición 3 (promedio menor o igual a 15 min): @(Model.Cond3 ? "Sí" : "No")</li>
+    </ul>
+}

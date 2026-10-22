@@ -1,0 +1,29 @@
+@page
+@model CalculadoraWeb.Pages.TablademultiplicarModel
+@{
+    ViewData["Title"] = "Tabla de multiplicar";
+}
+
+<h2>Ejercicio: tabla de multiplic
+ar</h2>
+
+<form method="post">
+    <label for="txtN">Número (1 a 100):</label>
+    <input type="text" id="txtN" name="txtN" value="@Model.TxtN" />
+    <button type="submit">Mostrar tabla</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <p style="color:red">@Model.Error</p>
+}
+
+@if (Model.Lineas.Count > 0)
+{
+    <ul>
+        @foreach (var linea in Model.Lineas)
+        {
+            <li>@linea</li>
+        }
+    </ul>
+}
